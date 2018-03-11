@@ -1,17 +1,20 @@
 /**
  * Created by martin on 11/03/18.
  */
-function asyncMethod(message, cb) {
-    setTimeout(function() {
-        console.log(message);
-        cb();
-    }, 500)
+function asyncMethod(message) {
+    return new Promise(function(fulfill, reject) {
+        setTimeout(function() {
+            console.log(message);
+            fulfill();
+        }, 500)
+    });
+
 }
 
-asyncMethod('open DB connection', function() {
-    asyncMethod('find user', function() {
-        asyncMethod('validate user', function() {
-            asyncMethod('do stuff', function() {})
+asyncMethod('open DB connection').then( function() {
+    asyncMethod('find user').then( function() {
+        asyncMethod('validate user').then( function() {
+            asyncMethod('do stuff').then(function() {})
         })
-    });
-});
+    })
+})
