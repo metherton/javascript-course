@@ -12,15 +12,19 @@ function asyncMethod(message) {
 }
 
 function doStuff() {
-    asyncMethod('do stuff').then(function() {})
+    return asyncMethod('do stuff');
 }
 
 function validateUser() {
-    asyncMethod('validate user').then( doStuff)
+    return asyncMethod('validate user');
 }
 
 function findUser() {
-    asyncMethod('find user').then( validateUser)
+    return asyncMethod('find user');
 }
 
-asyncMethod('open DB connection').then( findUser)
+asyncMethod('open DB connection')
+    .then( findUser)
+    .then( validateUser)
+    .then( doStuff)
+    .then(function() {});
