@@ -11,10 +11,16 @@ function asyncMethod(message) {
 
 }
 
-asyncMethod('open DB connection').then( function() {
-    asyncMethod('find user').then( function() {
-        asyncMethod('validate user').then( function() {
-            asyncMethod('do stuff').then(function() {})
-        })
-    })
-})
+function doStuff() {
+    asyncMethod('do stuff').then(function() {})
+}
+
+function validateUser() {
+    asyncMethod('validate user').then( doStuff)
+}
+
+function findUser() {
+    asyncMethod('find user').then( validateUser)
+}
+
+asyncMethod('open DB connection').then( findUser)
