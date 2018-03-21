@@ -1,0 +1,29 @@
+{
+  "name": "javascript-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app-p.js",
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "express": "4.16.3",
+    "passport": "0.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metherton/javascript-course.git"
+  },
+  "author": "Martin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metherton/javascript-course/issues"
+  },
+  "homepage": "https://github.com/metherton/javascript-course#readme",
+  "engines": {
+    "node": "6.10.0"
+  }
+}
