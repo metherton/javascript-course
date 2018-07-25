@@ -13,6 +13,16 @@ function asyncMethod(message, number) {
 
 }
 
+function asyncMethod1(message, number) {
+    return new Promise(function(fulfill, reject) {
+        setTimeout(function() {
+            console.log(message + ' ' + number);
+            fulfill(number + 1);
+        }, 2500)
+    });
+
+}
+
 function doStuff() {
     return asyncMethod('do stuff');
 }
@@ -28,7 +38,7 @@ function findUser() {
 async function main() {
 
     var one = await asyncMethod('open DB connection', 1);
-    var two = await asyncMethod('find user', one);
+    var two = await asyncMethod1('find user', one);
     var three = await asyncMethod('validate user', two);
     var four = await asyncMethod('find user', three);
 
